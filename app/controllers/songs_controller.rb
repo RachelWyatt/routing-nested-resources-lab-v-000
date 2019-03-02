@@ -14,7 +14,7 @@ class SongsController < ApplicationController
   def show
     if params[:artist_id]
         if Artist.find(params[:artist_id]).songs.find_by(id: params[:id])
-         @song = Artist.find(params[:artist_id]).songs
+         @song = Artist.find(params[:artist_id]).songs.find(params[:id])
         else
          redirect_to artists_path
         end
